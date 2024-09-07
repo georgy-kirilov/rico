@@ -2,16 +2,8 @@
 
 public abstract record ValueObject<T> : BaseValueObject
 {
-    protected ValueObject(
-        T value,
-        int? maxLength = null,
-        bool? unicode = null,
-        int? precision = null,
-        int? scale = null) : base(
-            maxLength, 
-            unicode,
-            precision,
-            scale)
+    protected ValueObject(T value, MaxLength maxLength, Unicode unicode, Precision precision)
+        : base(maxLength, unicode, precision)
     {
         Value = value;
     }

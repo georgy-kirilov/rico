@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Rico.Abstractions.Date;
 using Rico.Abstractions.SnowflakeId;
 using Rico.Abstractions.ValueObjects;
@@ -10,7 +11,7 @@ public abstract class BaseDbContext(DbContextOptions options, Assembly[] assembl
 {
     private readonly Assembly[] _assembliesToScan = assembliesToScan;
 
-    protected sealed override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
     {
         configurationBuilder.Properties<UtcDateTime>().HaveConversion<UtcDateTimeValueConverter>();
 
@@ -62,33 +63,30 @@ public abstract class BaseDbContext(DbContextOptions options, Assembly[] assembl
 
                 propertyBuilder.HaveConversion(converterType);
 
-                if (valueObject.MaxLength.HasValue)
-                {
-                    propertyBuilder.HaveMaxLength(valueObject.MaxLength.Value);
-                }
+                propertyBuilder.HaveMaxLength(valueObject.MaxLength);
 
-                if (valueObject.Unicode.HasValue)
-                {
-                    propertyBuilder.AreUnicode(valueObject.Unicode.Value);
-                }
+                propertyBuilder.AreUnicode(valueObject.Unicode);
 
-                if (valueObject.Precision.HasValue)
-                {
-                    if (valueObject.Scale.HasValue)
-                    {
-                        propertyBuilder.HavePrecision(valueObject.Precision.Value, valueObject.Scale.Value);
-                    }
-                    else
-                    {
-                        propertyBuilder.HavePrecision(valueObject.Precision.Value);
-                    }
-                }
+                propertyBuilder.HavePrecision(valueObject.Precision, valueObject.Scale);
             }
         }
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        foreach (var foreignKey in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+        {
+            foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
+        }
+
+        foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+        {
+            foreach (var property in entityType.GetProperties())
+            {
+                property.ValueGenerated = ValueGenerated.Never;
+            }
+        }
+
         foreach (var assemblyToScan in _assembliesToScan)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(assemblyToScan);

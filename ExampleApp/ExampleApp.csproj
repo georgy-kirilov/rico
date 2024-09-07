@@ -15,6 +15,7 @@
     <ProjectReference Include="..\Rico.Database\Rico.Database.csproj" />
     <ProjectReference Include="..\Rico.Date\Rico.Date.csproj" />
     <ProjectReference Include="..\Rico.SnowflakeId\Rico.SnowflakeId.csproj" />
+    <ProjectReference Include="..\Rico.ValueObjects\Rico.ValueObjects.csproj" />
   </ItemGroup>
 
 </Project>

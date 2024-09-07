@@ -3,6 +3,7 @@
 [assembly: InternalsVisibleTo("Rico.Date")]
 [assembly: InternalsVisibleTo("Rico.Database")]
 [assembly: InternalsVisibleTo("Rico.SnowflakeId")]
+[assembly: InternalsVisibleTo("Rico.ValueObjects")]
 
 namespace Rico.Abstractions.Entities;
 

@@ -4,23 +4,23 @@ namespace Rico.Abstractions.ValueObjects;
 
 public abstract record BaseValueObject
 {
-    protected BaseValueObject(int? maxLength, bool? unicode, int? precision, int? scale)
+    protected BaseValueObject(MaxLength maxLength, Unicode unicode, Precision precision)
     {
-        MaxLength = maxLength;
-        Unicode = unicode;
-        Precision = precision;
-        Scale = scale;
+        MaxLength = maxLength.Value;
+        Unicode = unicode.Value;
+        Precision = precision.PrecisionValue;
+        Scale = precision.Scale;
     }
 
     [JsonIgnore]
-    internal int? MaxLength { get; }
+    internal int MaxLength { get; }
 
     [JsonIgnore]
-    internal bool? Unicode { get; }
+    internal bool Unicode { get; }
 
     [JsonIgnore]
-    internal int? Precision { get; }
+    internal int Precision { get; }
 
     [JsonIgnore]
-    internal int? Scale { get; }
+    internal int Scale { get; }
 }

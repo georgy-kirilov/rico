@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rico.Database", "Rico.Datab
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleApp", "ExampleApp\ExampleApp.csproj", "{79F51B8C-D13F-437C-92D8-4DC37BE1A555}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.SnowflakeId", "Rico.SnowflakeId\Rico.SnowflakeId.csproj", "{C41BB252-31E8-42C9-B9FB-9A1218BF84E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rico.SnowflakeId", "Rico.SnowflakeId\Rico.SnowflakeId.csproj", "{C41BB252-31E8-42C9-B9FB-9A1218BF84E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.Date", "Rico.Date\Rico.Date.csproj", "{541B02B8-A7AD-4E24-8476-6D22D9F13922}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rico.Date", "Rico.Date\Rico.Date.csproj", "{541B02B8-A7AD-4E24-8476-6D22D9F13922}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.ValueObjects", "Rico.ValueObjects\Rico.ValueObjects.csproj", "{1AB8EFE3-99D7-4BE8-B516-DEA058F763DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{541B02B8-A7AD-4E24-8476-6D22D9F13922}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{541B02B8-A7AD-4E24-8476-6D22D9F13922}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{541B02B8-A7AD-4E24-8476-6D22D9F13922}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AB8EFE3-99D7-4BE8-B516-DEA058F763DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB8EFE3-99D7-4BE8-B516-DEA058F763DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB8EFE3-99D7-4BE8-B516-DEA058F763DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB8EFE3-99D7-4BE8-B516-DEA058F763DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
