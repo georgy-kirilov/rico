@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{2817AE87-3570-48CF-8679-F5A4EFC5429F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico", "Rico\Rico.csproj", "{495BE4DE-EC27-49AF-8EA3-AC5536EBF7FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2817AE87-3570-48CF-8679-F5A4EFC5429F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2817AE87-3570-48CF-8679-F5A4EFC5429F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2817AE87-3570-48CF-8679-F5A4EFC5429F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2817AE87-3570-48CF-8679-F5A4EFC5429F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{495BE4DE-EC27-49AF-8EA3-AC5536EBF7FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{495BE4DE-EC27-49AF-8EA3-AC5536EBF7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{495BE4DE-EC27-49AF-8EA3-AC5536EBF7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{495BE4DE-EC27-49AF-8EA3-AC5536EBF7FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6AA3C350-F5E3-4FC9-BB93-BE65D5A3289E}
+	EndGlobalSection
+EndGlobal
