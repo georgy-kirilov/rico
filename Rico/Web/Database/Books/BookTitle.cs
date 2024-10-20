@@ -1,13 +1,15 @@
-﻿using Rico.Validation;
+﻿using System.Text.Json.Serialization;
+using Rico.Validation;
 using Rico.ValueObjects;
 
 namespace Web.Database.Books;
 
 public sealed record BookTitle : ValueObject<string>
 {
-    public const int MaxLength = 70;
+    public static readonly Length MaxLength = Length.Max(70);
 
-    private BookTitle() : base(Length.Max(MaxLength), Unicode.Allowed, Precision.None) { }
+    [JsonConstructor]
+    private BookTitle() : base(MaxLength, Unicode.Allowed, Precision.None) { }
 
     public static BookTitle Create(string? value)
     {
@@ -17,7 +19,7 @@ public sealed record BookTitle : ValueObject<string>
 
         value = value.Trim();
 
-        DomainException.ThrowIf.MaxLengthIsExceeded<BookTitle>(value, MaxLength);
+        DomainException.ThrowIf.MaxLengthIsExceeded<BookTitle>(value, MaxLength.Value);
 
         return new() { Value = value };
     }

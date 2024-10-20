@@ -1,0 +1,52 @@
+﻿{
+  "entities": [
+    {
+      "id": {
+        "value": 1
+      },
+      "name": {
+        "value": "Fantasy"
+      }
+    },
+    {
+      "id": {
+        "value": 2
+      },
+      "name": {
+        "value": "Comedy"
+      }
+    },
+    {
+      "id": {
+        "value": 3
+      },
+      "name": {
+        "value": "Action"
+      }
+    },
+    {
+      "id": {
+        "value": 4
+      },
+      "name": {
+        "value": "Drama"
+      }
+    },
+    {
+      "id": {
+        "value": 5
+      },
+      "name": {
+        "value": "Science Fiction"
+      }
+    },
+    {
+      "id": {
+        "value": 6
+      },
+      "name": {
+        "value": "Romance"
+      }
+    }
+  ]
+}

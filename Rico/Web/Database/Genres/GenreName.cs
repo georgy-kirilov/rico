@@ -1,13 +1,15 @@
-﻿using Rico.Validation;
+﻿using System.Text.Json.Serialization;
+using Rico.Validation;
 using Rico.ValueObjects;
 
 namespace Web.Database.Genres;
 
 public sealed record GenreName : ValueObject<string>
 {
-    public const int MaxLength = 30;
+    public static readonly Length MaxLength = Length.Max(30);
 
-    private GenreName() : base(Length.Max(MaxLength), Unicode.None, Precision.None) { }
+    [JsonConstructor]
+    private GenreName() : base(MaxLength, Unicode.None, Precision.None) { }
 
     public static GenreName Create(string? value)
     {
@@ -17,7 +19,7 @@ public sealed record GenreName : ValueObject<string>
 
         value = value.Trim();
 
-        DomainException.ThrowIf.MaxLengthIsExceeded<GenreName>(value, MaxLength);
+        DomainException.ThrowIf.MaxLengthIsExceeded<GenreName>(value, MaxLength.Value);
 
         DomainException.ThrowIf.UnicodesExist<GenreName>(value);
 

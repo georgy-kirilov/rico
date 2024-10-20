@@ -1,4 +1,5 @@
-﻿using NodaTime;
+﻿using System.Text.Json.Serialization;
+using NodaTime;
 using Rico.Date;
 using Rico.Validation;
 using Rico.ValueObjects;
@@ -9,6 +10,7 @@ public sealed record BookPublishingDate : ValueObject<LocalDate>
 {
     public static readonly LocalDate GutenbergPrintingPressInventionDate = new(1450, 1, 1);
 
+    [JsonConstructor]
     private BookPublishingDate() : base(Length.None, Unicode.None, Precision.None) { }
 
     public static BookPublishingDate Create(LocalDate value, IDateTime dateTime)

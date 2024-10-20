@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Rico.Database;
 using Rico.Date;
 using Web.Database;
 using Web.Database.Books;
@@ -21,32 +22,34 @@ using var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 db.Database.EnsureDeleted();
 db.Database.EnsureCreated();
 
-var dateTime = scope.ServiceProvider.GetRequiredService<IDateTime>();
+await new Seeder<Genre, GenreId>().Seed(db);
 
-var book = Book.Create(
-    BookTitle.Create("The Lord of the Rings"),
-    BookPages.Create(423),
-    BookPublishingDate.Create(new(1954, 07, 29), dateTime),
-    BookDescription.Create("""
-        The Lord of the Rings follows a quest to destroy the One Ring,
-        preventing the Dark Lord Sauron from conquering Middle-earth.
-        """));
+//var dateTime = scope.ServiceProvider.GetRequiredService<IDateTime>();
 
-var fantasy = new Genre
-{
-    Id = new() { Value = 1 },
-    Name = GenreName.Create("Fantasy"),
-};
+//var book = Book.Create(
+//    BookTitle.Create("The Lord of the Rings"),
+//    BookPages.Create(423),
+//    BookPublishingDate.Create(new(1954, 07, 29), dateTime),
+//    BookDescription.Create("""
+//        The Lord of the Rings follows a quest to destroy the One Ring,
+//        preventing the Dark Lord Sauron from conquering Middle-earth.
+//        """));
 
-book.Genres.Add(fantasy);
+//var fantasy = new Genre
+//{
+//    Id = new() { Value = 1 },
+//    Name = GenreName.Create("Fantasy"),
+//};
 
-db.Set<Book>().Add(book);
-db.SaveChanges();
+//book.Genres.Add(fantasy);
 
-var fromDate = BookPublishingDate.Create(new(1900, 01, 01), dateTime);
+//db.Set<Book>().Add(book);
+//db.SaveChanges();
 
-var sum = db.Set<Book>().Where(x => x.PublishingDate > fromDate).Sum(x => x.Pages);
+//var fromDate = BookPublishingDate.Create(new(1900, 01, 01), dateTime);
 
-Console.WriteLine(sum);
+//var sum = db.Set<Book>().Where(x => x.PublishingDate > fromDate).Sum(x => x.Pages);
+
+//Console.WriteLine(sum);
 
 app.Run();
