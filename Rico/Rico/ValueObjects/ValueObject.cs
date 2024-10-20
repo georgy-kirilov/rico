@@ -1,8 +1,8 @@
 ﻿namespace Rico.ValueObjects;
 
-public abstract record RicoValueObject<T> where T : IComparable<T>
+public abstract record ValueObject<T> where T : IComparable<T>
 {
-    protected RicoValueObject(Length length, Unicode unicode, Precision precision)
+    protected ValueObject(Length length, Unicode unicode, Precision precision)
     {
         Length = length;
         Unicode = unicode;
@@ -17,22 +17,22 @@ public abstract record RicoValueObject<T> where T : IComparable<T>
     
     internal Precision Precision { get; }
 
-    public static bool operator >(RicoValueObject<T> left, RicoValueObject<T> right)
+    public static bool operator >(ValueObject<T> left, ValueObject<T> right)
     {
         return left.Value.CompareTo(right.Value) > 0;
     }
 
-    public static bool operator <(RicoValueObject<T> left, RicoValueObject<T> right)
+    public static bool operator <(ValueObject<T> left, ValueObject<T> right)
     {
         return left.Value.CompareTo(right.Value) < 0;
     }
 
-    public static bool operator >=(RicoValueObject<T> left, RicoValueObject<T> right)
+    public static bool operator >=(ValueObject<T> left, ValueObject<T> right)
     {
         return left.Value.CompareTo(right.Value) >= 0;
     }
 
-    public static bool operator <=(RicoValueObject<T> left, RicoValueObject<T> right)
+    public static bool operator <=(ValueObject<T> left, ValueObject<T> right)
     {
         return left.Value.CompareTo(right.Value) <= 0;
     }
