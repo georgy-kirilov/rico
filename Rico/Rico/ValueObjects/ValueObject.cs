@@ -36,4 +36,9 @@ public abstract record ValueObject<T> where T : notnull, IComparable<T>
     {
         return left.Value.CompareTo(right.Value) <= 0;
     }
+
+    public static implicit operator T(ValueObject<T> valueObject)
+    {
+        return valueObject.Value;
+    }
 }

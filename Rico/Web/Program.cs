@@ -34,4 +34,10 @@ var book = Book.Create(
 db.Set<Book>().Add(book);
 db.SaveChanges();
 
+var fromDate = BookPublishingDate.Create(new(1900, 01, 01), dateTime);
+
+var sum = db.Set<Book>().Where(x => x.PublishingDate > fromDate).Sum(x => x.Pages);
+
+Console.WriteLine(sum);
+
 app.Run();
