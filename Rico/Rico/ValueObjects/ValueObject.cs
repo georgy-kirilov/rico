@@ -1,6 +1,6 @@
 ﻿namespace Rico.ValueObjects;
 
-public abstract record ValueObject<T> where T : IComparable<T>
+public abstract record ValueObject<T> where T : notnull, IComparable<T>
 {
     protected ValueObject(Length length, Unicode unicode, Precision precision)
     {

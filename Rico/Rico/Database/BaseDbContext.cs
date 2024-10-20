@@ -136,14 +136,14 @@ public abstract class BaseDbContext(DbContextOptions options) : DbContext(option
             }
 
             // Check the base type
-            Type baseType = givenType.BaseType;
+            Type baseType = givenType.BaseType!;
             while (baseType != null)
             {
                 if (baseType.IsGenericType && baseType.GetGenericTypeDefinition() == genericType)
                 {
                     return true;
                 }
-                baseType = baseType.BaseType;
+                baseType = baseType.BaseType!;
             }
         }
 
