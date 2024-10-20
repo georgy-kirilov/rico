@@ -22,6 +22,7 @@ public abstract class BaseDbContext(DbContextOptions options) : DbContext(option
                     .Properties(type)
                     .HaveConversion(converterType)
                     .HaveMaxLength(26)
+                    .AreFixedLength()
                     .AreUnicode(false);
 
                 continue;
