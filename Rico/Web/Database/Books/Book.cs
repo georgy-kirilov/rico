@@ -1,4 +1,5 @@
 ﻿using Rico.Database;
+using Web.Database.Genres;
 
 namespace Web.Database.Books;
 
@@ -13,6 +14,8 @@ public sealed class Book : Entity<BookId>
     public required BookPublishingDate PublishingDate { get; init; }
 
     public required BookDescription? Description { get; init; }
+
+    public List<Genre> Genres { get; } = [];
 
     public static Book Create(
         BookTitle title,

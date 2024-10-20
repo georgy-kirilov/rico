@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Rico.Date;
 using Web.Database;
 using Web.Database.Books;
+using Web.Database.Genres;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,14 @@ var book = Book.Create(
         The Lord of the Rings follows a quest to destroy the One Ring,
         preventing the Dark Lord Sauron from conquering Middle-earth.
         """));
+
+var fantasy = new Genre
+{
+    Id = new() { Value = 1 },
+    Name = GenreName.Create("Fantasy"),
+};
+
+book.Genres.Add(fantasy);
 
 db.Set<Book>().Add(book);
 db.SaveChanges();
